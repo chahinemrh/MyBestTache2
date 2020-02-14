@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %} 
+{% form_theme formTache  'bootstrap_4_layout.html.twig' %}
+
+{%  block body %}
+
+{% if editMode %}
+<br>
+<h2> Modification de la tâche</h2>
+<hr>
+{% else %}
+<br>
+<h2>Création d'une nouvelle tâche</h2>
+<hr>
+
+{% endif %}
+
+{{form_start(formTache)}}
+
+{{form_widget(formTache)}}
+
+<button type="submit" class="btn btn-success"> 
+    {% if editMode %}
+Modifier la tâche
+    {% else %}
+Enregistrer nouvelle tâche
+    {% endif %}
+
+
+
+</button>
+
+
+{{form_end(formTache)}}
+
+ {% endblock %}

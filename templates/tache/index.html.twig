@@ -1,0 +1,42 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Tâches{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<section class="taches">
+        <h1 class="display-5">La liste de vos tâches</h1>
+        <hr>
+    {% for tache in taches | sort | reverse%}
+    
+    <div class="jumbotron">
+
+        <article>
+            <h2> {{ tache.titre}}</h2>
+            <div class="metadata">
+                Créee le {{ tache.dateCreation | date('d/m/y') }} à {{ tache.dateCreation | date('H:i') }}
+            </div>
+            <div class="content">
+                <img src="" alt="">
+                <p> {{ tache.description | raw}} </p>
+                <h6> Statut:  <medium class="text-muted">{{ tache.statut | raw}} </medium> </h6>
+
+                <a href="{{ path('tache_show', {'id': tache.id})  }}" class="btn btn-primary"> Afficher la tâche</a>
+                <a href="{{ path('tache_edit', {'id': tache.id})  }}" class="btn btn-info"> Modifier la tâche</a>
+
+            </div>
+        </article>
+        </div>
+        <hr><hr>
+        <br>
+    {% endfor %}
+
+    
+
+  
+
+
+</section>
+{% endblock %}

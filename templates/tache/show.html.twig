@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %} 
+
+{%  block body %}
+
+
+
+<section class="taches">
+    <div class="jumbotron">
+
+<article>
+    <br>
+    <br>
+
+    <h2> {{taches.titre}}</h2>
+    <div class="metadata">
+        Créee le {{ taches.dateCreation | date('d/m/y') }} à {{ taches.dateCreation | date('H:i') }}    </div>
+    <div class="content">
+        <p> {{ taches.description | raw}} </p>
+        <h6> Statut:  <medium class="text-muted">{{ taches.statut | raw}} </medium>
+        </h6>
+    </div>
+    <hr>
+
+</article>
+<a href="{{ path('tache_edit', {'id': taches.id})  }}" class="btn btn-info"> Modifier la tâche</a>
+<a href="{{ path('tache_delete', {'id': taches.id})  }}" class="btn btn-danger"> Supprimer la tâche</a>
+</div>
+</section>
+
+
+ {% endblock %}
